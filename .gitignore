@@ -1,0 +1,19 @@
+# venv
+venv/
+
+# sensitive files
+.env
+#config.py
+secrets.json
+
+# local database
+db.sqlite3
+
+# Logs and cache
+*.log
+__pycache__/
+*.pyc
+*.pyo
+
+# secret key Django
+# settings.py
