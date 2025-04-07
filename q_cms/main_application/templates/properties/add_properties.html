@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}Biens{% endblock %}
+
+{% block content %}
+    <h1>Ajouter un bien immobilier</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <hr>
+
+    <h2>Liste des biens :</h2>
+    <ul>
+        {% for prop in properties %}
+            <li>
+                <strong>{{ prop.name }}</strong> - {{ prop.surface }} m² - {{ prop.price }} €<br>
+                Adresse : {{ prop.address }}<br>
+                Description : {{ prop.description }}
+            </li>
+        {% empty %}
+            <li>Aucun bien enregistré.</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}

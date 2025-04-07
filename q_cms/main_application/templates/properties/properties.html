@@ -1,0 +1,26 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}Biens{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue sur la page des biens immobiliers.</h1>
+    <p>Ici tu pourras accéder aux biens immobiliers que tu gères.</p>
+
+    <a href="{% url 'add_properties' %}">Ajouter un bien</a>
+
+    <hr>
+
+    <h2>Liste des biens :</h2>
+    <ul>
+        {% for prop in properties %}
+            <li>
+                <strong>{{ prop.name }}</strong> - {{ prop.surface }} m² - {{ prop.price }} €<br>
+                Adresse : {{ prop.address }}<br>
+                Description : {{ prop.description }}
+            </li>
+        {% empty %}
+            <li>Aucun bien enregistré.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

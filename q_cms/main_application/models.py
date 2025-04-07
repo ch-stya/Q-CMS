@@ -12,3 +12,12 @@ class TestTable(models.Model):
 
     def __str__(self):
         return self.titre
+    
+class Property(models.Model):
+    # Table des biens immobiliers
+    name = models.CharField(max_length=255)
+    address = models.TextField()
+    price = models.FloatField()
+    description = models.TextField()
+    surface = models.IntegerField()
+    creation_date = models.DateTimeField(auto_now_add=True)

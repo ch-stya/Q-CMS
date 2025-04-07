@@ -1,0 +1,36 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="fr"> 
+    <head> 
+        <title>{% block title %}Page d'accueil{% endblock %}</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'main_application/styles.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+    </head>
+    <body> 
+        <!-- Code -->
+        <div class="Menu">
+            <div class="MenuBox">
+                <a href="{% url 'homepage' %}">Accueil</a>
+            </div>
+            <div class="MenuBox">
+                <a href="{% url 'properties' %}">Biens</a>
+            </div>
+            <div class="MenuBox">
+                <a href="{% url 'clients' %}">Clients</a>
+            </div>
+            <div class="MenuBox">
+                <a href="{% url 'calendar' %}">Calendrier</a>
+            </div>
+            <div class="MenuBox">
+                <a href="{% url 'profile' %}">Profil</a>
+            </div>
+       </div>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <p>&copy; 2025 ch-stya. Tous droits réservés.</p>
+    </footer>
+    </body>
+</html>

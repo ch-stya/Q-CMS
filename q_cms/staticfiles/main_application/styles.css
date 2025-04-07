@@ -1,0 +1,18 @@
+:root { 
+    --main-color:#F4AA32;
+  }
+
+.Menu {
+    display: flex;
+    justify-content:flex-end;
+    margin: 20px 30px;
+}
+
+.MenuBox {
+    margin: 20px;
+}
+
+.MenuBox a {
+    color: var(--main-color);
+    text-decoration:none;
+}
