@@ -19,7 +19,7 @@ Here is a bunch of functionalities that it would need to have :
 
 I am a beginner in dev, and this is my first time creating an application. 
 
-Also, I am french, so I am sorry if the english isn't perfect in here, plus my project might contain french words in it (even if I am trying to do everything in english !)
+Also, I am french, so I am sorry if the english isn't perfect in here, plus my project might contain french words in it.
 
 Any advice is welcome ! :)
 
@@ -39,7 +39,7 @@ Any advice is welcome ! :)
 This project is using Python, when you import it to your machine, you'll need to create your own venv : 
 
 ```shell
-# cd to the folder that contain the project
+# cd to the folder that contain the project (Q-CMS)
 python -m venv venv
 ```
 
@@ -65,7 +65,7 @@ I am using a MariaDB database that runs on localhost.
 
 Create a new database on your MariaDB instance :
 
-```
+```sql
 CREATE DATABASE qcms ;
 ```
 
@@ -73,13 +73,37 @@ CREATE DATABASE qcms ;
 
 Your .env needs to include 
 
-```
+```sql
 DB_NAME= 'qcms' # database name 
 DB_USER= # database user 
 DB_PASSWORD= # database password
 DB_HOST= # database host
 DB_PORT= # database port
-SECRET_KEY= # your django secret key
+SECRET_KEY="" # your django secret key
+```
+
+### Django Key
+
+To generate you own Django secret key, run the following command (inside the venv) :
+
+```shell
+# Windows 
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+
+# Linux
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+
+```
+
+Copy and paste it in the .env file.
+
+### Database update
+
+To create the tables in the database, run the following command :
+
+```shell
+# cd to the folder that contain the project (Q-CMS/q_cms)
+python manage.py migrate
 ```
 
 ### Admin Access
@@ -87,6 +111,7 @@ SECRET_KEY= # your django secret key
 Run the following command to create your superuser and be able to access the admin console :
 
 ```shell
+# cd to the folder that contain the project (Q-CMS/q_cms)
 python manage.py createsuperuser
 ```
 
@@ -95,7 +120,7 @@ python manage.py createsuperuser
 To run the project, run this command :
 
 ```shell
-# cd to the folder that contain the project
+# cd to the folder that contain the project (Q-CMS/q_cms)
 python manage.py runserver
 ```
 
