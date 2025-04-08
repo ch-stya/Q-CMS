@@ -6,7 +6,7 @@
     <h1>Bienvenue sur la page des biens immobiliers.</h1>
     <p>Ici tu pourras accéder aux biens immobiliers que tu gères.</p>
 
-    <a href="{% url 'add_properties' %}">Ajouter un bien</a>
+    <button type="submit"><a href="{% url 'add_property' %}">Ajouter un bien</a></button>
 
     <hr>
 
@@ -16,7 +16,9 @@
             <li>
                 <strong>{{ prop.name }}</strong> - {{ prop.surface }} m² - {{ prop.price }} €<br>
                 Adresse : {{ prop.address }}<br>
-                Description : {{ prop.description }}
+                Description : {{ prop.description }}<br>
+                <button type="submit"><a href="{% url 'delete_property' prop.id %}" onclick="return confirm('Supprimer ce bien ?');">🗑 Supprimer</a></button> 
+                <button type="submit"><a href="{% url 'update_property' prop.id %}">✏️ Modifier</a></button>
             </li>
         {% empty %}
             <li>Aucun bien enregistré.</li>

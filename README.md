@@ -115,7 +115,7 @@ Run the following command to create your superuser and be able to access the adm
 python manage.py createsuperuser
 ```
 
-## Running the app
+## Run the app
 
 To run the project, run this command :
 
